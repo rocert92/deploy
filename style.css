@@ -1,107 +1,223 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Загальні стилі */
+.main{
+  flex: 1;
 }
+
 
 body {
-  background-color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  color: #000;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f0f0f0;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
   display: flex;
   justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.container {
-  width: 960px;
-  padding-top: 20px;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  margin-bottom: 25px;
-}
-
-.divider {
-  height: 2px;
-  background-color: #ddd;
-  margin: 0 auto 25px;
-  width: 100%;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
+nav a {
   text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  color: #000;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.phone {
-  font-weight: 600;
-  font-size: 15px;
+nav a:hover {
+  color: #ffa500;
 }
 
 .hero {
-  width: 960px;
-  height: 380px;
-  background-image: url('Assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.9));
-  padding: 25px 35px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.hero-text {
-  color: white;
-}
-
-.hero-text h1 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.hero-text h1 span {
-  font-size: 16px;
-  font-weight: 400;
-  color: #ccc;
-}
-
-.hero-text p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #eee;
-}
-
-footer {
-  margin-top: 20px;
   text-align: center;
-  font-weight: 600;
-  font-size: 14px;
+  margin-top: 10vh;
+  padding: 2rem;
+}
+
+.hero img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Секції з картками */
+.services-section {
+  padding: 3rem 2rem;
+}
+
+.services-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  text-align: center;
+}
+
+.card img {
+  width: 200px;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Адаптація під мобільні */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logo-and-phone {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.phone {
+  color: #f0f0f0;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* Зменшуємо для мобільних */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-and-phone {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-bottom: 0%;
+  margin-top: auto;
+}
+
+
+.btn12 {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  text-align: center;
+}
+
+.btn12 img {
+  width: 200px;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.btn12 h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.btn12 p {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+
+.btn12 {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn12 img {
+    width: 100%;
+    height: auto;
 }
